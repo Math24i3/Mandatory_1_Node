@@ -1,0 +1,233 @@
+
+    #video-background{
+        position: fixed;
+        right: 0;
+        top: 0;
+        min-width: 100%; 
+        min-height: 100%;
+    }
+
+    #bg-image{
+      position: relative;
+      background-image: url("/nodemon.png");
+      background-size: auto;
+      
+    }
+
+    .head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 100%;
+        padding-top: 10px;
+        height: 150px;
+      }
+
+      .open-nav{
+          font-size: 1.2em;
+          font-family: Arial, Helvetica, sans-serif;
+          color: white;
+          margin-left: 20px;
+          top: 85px;
+          cursor: pointer;
+          position: absolute; 
+          background: rgba(0, 0, 0, 0.3);
+          border-radius: 4px;
+          padding: 10px;
+          transition: 0.3s;
+          
+      }
+      
+      .open-nav:hover{
+        background: rgba(0, 0, 0, 0.5);
+        color: #68ce54;
+      }
+
+      .markup-open-nav{
+        background: rgba(235, 235, 235, 0.5);
+        color: white;
+      }
+      
+      #node-img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+      }
+     
+
+      .nav-side-bar{
+        height: 100%;
+        top: 0;
+        width: 0; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        background-color: #111; 
+        overflow-x: hidden; 
+        padding-top: 120px; 
+        transition: 0.3s; 
+        
+      }
+
+      .nav-side-bar a{
+        padding: 12px 8px 8px 32px;
+        padding-top: 30px;
+        text-decoration: none;
+        font-size: 1.3em;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        font-family: Arial, Helvetica, sans-serif;
+        border-bottom: 1px solid grey;
+      }
+
+      .nav-side-bar a:hover{
+        color: #68ce54;
+        cursor: pointer;
+      }
+
+      .nav-side-bar .closebtn {
+        position: absolute;
+        top: 50px;
+        right: 25px;
+        font-size: 1.8em;
+        border-bottom: none;
+        margin-bottom: 100px;
+      }
+      
+      .active-nav{
+        background-color: grey;
+      }
+
+      .content-wrapper{
+        position: absolute;
+        margin-top: 155px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1000px;
+      }
+      
+
+      .page-content{
+        width: 95%;
+        height: auto;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        -moz-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        padding-bottom: 20px;
+        margin-left: 2.5%;
+      
+      }
+
+      .page-content p{
+        padding-left: 20px;
+        padding-right: 20px;
+        font-family: monospace;
+        font-weight: 500;
+        font-size: 1.2em;
+        color: black;
+      }
+
+      .page-content a{
+        padding: 10px;
+        font-family: monospace;
+        font-weight: 500;
+        font-size: 1.2em;
+        color: black;
+        background-color: lightslategrey;
+        -webkit-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        -moz-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        border-radius: 4px;
+        margin-left: 20px;
+        text-decoration: none;
+        
+      }
+
+      .page-content img{
+        padding-left: 20px;
+        width: 90%;
+        max-width: 500px;
+      }
+
+    
+      .page-content em{
+        color: #68ce54;
+        transition: 0.3s;
+      }
+
+      .table-section{
+        padding: 20px;
+        margin: 10px;
+        
+        width: auto;
+        max-width: 400px;
+      }
+
+      .table-section table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+
+      }
+      
+      .table-section td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      .table-section tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .interaction-section{
+        padding: 10px;
+        border-radius: 4px;
+        -webkit-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        -moz-box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        box-shadow: 4px 6px 8px -1px rgba(0,0,0,0.56);
+        margin: 20px;
+        width: auto;
+        max-width: 400px;
+      }
+
+      .interaction-section p{
+        font-size: 1em;
+        margin-bottom: 0;
+        margin-left: -10px;
+      }
+      .interaction-section input{
+        margin-left: 10px;
+        font-size: 1em;
+        width: 85%;
+      }
+
+      .interaction-section select{
+        margin: 10px;
+        font-size: 1em;
+        width: 85%;
+      }
+
+      .interaction-section button{
+        margin: 10px;
+        font-size: 1em;
+        width: 85%;
+      }
+
+      #color-section{
+        background-color: #68ce54;
+        width: 96%;
+        height: 50px;
+        margin-left: 2%;
+        
+      }
+

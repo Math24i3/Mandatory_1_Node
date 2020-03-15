@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tools</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body style="background-color: black;">
+    
+        <video id="video-background" autoplay loop>
+            <source src="/bg3.mp4" type="video/mp4">
+        </video>
+        
+        <div class="head">
+            <img src="/logos/node.png" id="node-img" alt="Node" width="300px">
+        </div>
+
+        <span class="open-nav" onclick="openNav()">Content menu</span>
+
+        <div id="side-nav" class="nav-side-bar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/index">Frontpage</a>
+            <a href="nodeJS">Setup a node project</a>
+            <a class="active-nav" href="/tools">Tools</a>
+            <a href="/JavaScript">JavaScript</a>
+            <a href="/crud">CRUD</a>
+
+        </div>
+        <div class="content-wrapper">
+            <div class="page-content" style="background-color: #68ce54; opacity: 0.9;">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Tools for Node:</p>
+                <p>This section will cover the tool used to make the application functional and additional tools we've covered in the course so far.</p>              
+            </div>
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Express:</p>
+                <p><em>Express</em> is a web application framework that enables the support for building software with JavaScript on the server side.</p>
+                <p>With express you are able to publish the app made with Node.Js to a website.</p>              
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Nodemon:</p>
+                <p><em>Nodemon</em> is a tool used in addition to express if you want a smooth and fast developing process.</p>
+                <p>Nodemon is a utility that will register and monitor changes made to the source code and automatically restarts the server each time a change has been made.</p> 
+                <p>- It can be implemented using the command: <em>npm install nodemon</em>. It will automatically be set in the <em>package.json</em> file.</p>   
+                <p>- After installation you can simply type in <em>nodemon app.js</em> to start the application, and every time a change has been made to the source code it 
+                    will restart the app. </p>         
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Budo:</p>
+                <p>When you develop a web application you also have the frontend part of your project you need to focus on.</p>
+                <p><em>Budo</em> can help you with a fast wisualizing of the frontend part by "Live-reloading" your html pages in the prototype-fase.</p>
+                <p>- Install budo globally by using the command: <em>npm install budo -g</em>.</p>
+                <p>- Next, is to navigate to the project folder in the terminal.</p>
+                <p>- From there, you can type in the command: <em>npx budo 'filename' --live --open</em>.</p>
+                <p><em>--live</em>, enables the "Live-reloading". <em>--open</em>, opens a browser with the corresponding html file.</p>
+                
+            </div>
+
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Request:</p>
+                <p><em>Request</em> is a tool/module that makes it possible to return http/https request of any kind. </p>
+                <p>It returns the pure HTML that is requested. Test it out below.</p>
+                <a href="/toolsExample" target="_blank">Get HTML!</a>
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">body-parser:</p>
+                <p><em>body-parser</em> makes it possible to read POST data. It reads a 'form' input and stores it as a javascript object which can be accessed by using <em>req.body</em>.</p>
+                <img src="/req.png" alt="">
+                <p>The <em>req.body</em> exists in the http request methods in the <em>app.js</em>.</p>
+                <p>To install the <em>body-parser</em> to the project, use the command in the terminal: <em>npm install body-parser</em>. 
+                    The package.json will automatically be updated.</p>
+            </div>
+
+
+
+        </div>
+
+        <script>
+            function openNav() {
+              document.getElementById("side-nav").style.width = "300px";
+            };
+            
+            function closeNav() {
+              document.getElementById("side-nav").style.width = "0";
+            };
+    
+            
+
+            
+            </script>
+
+        
+    
+</body>
+</html>

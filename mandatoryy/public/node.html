@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Setup Node</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body style="background-color: black;">
+    
+
+        <video id="video-background" autoplay loop>
+            <source src="/bg3.mp4" type="video/mp4" plays-inline>
+
+        </video>
+        
+        <div class="head">
+
+            <img src="/logos/node.png" id="node-img" alt="Node" width="300px">
+            
+            
+        </div>
+        <span class="open-nav" onclick="openNav()">Content menu</span>
+        <div id="side-nav" class="nav-side-bar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/index">Frontpage</a>
+            <a href="/nodeJS" class="active-nav">Setup a node project</a>
+            <a href="/tools">Tools</a>
+            <a href="/JavaScript">JavaScript</a>
+            <a href="/crud">CRUD</a>
+
+        </div>
+        <div class="content-wrapper">
+            <div class="page-content" style="background-color: #68ce54; opacity: 0.9;">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Tools for Node:</p>
+                <p>This section will cover the setup in order to get a simple node application/listener up and running.</p>              
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Creating a Node.Js project:</p>
+                <p>- In order to setup a simple node project you first need to create a <em>project folder</em>.</p>
+                <p>- Next up is to create a <em>package.json </em>file.</p>
+                <img src="package.PNG" alt="the package file">
+                <p>The package.json file contains information about the project, dependencies, settings etc.</p>
+                
+            </div>
+
+            <div class="page-content" style="background-color: #68ce54; opacity: 0.9;">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;" >NPM:</p>
+                <p>NPM stands for Node Package Manager. It manages all the packages and modules you have installed or wish to install/implement to your project.</p>   
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Running NPM commands:</p>
+                <p>- After setting up the project structure (almost) it's time to run the command: <em>npm 
+                    install express</em> or <em>npm install</em>.</p>
+                <p>The command(s) install the dependencies and the necessary files to the project.</p> 
+                <p>If you type the module name after the command <em>npm install</em> (ex. <em>express</em>), you specify the module you wish to implement. Otherwise it will install all 
+                    the dependencies you have specified in the <em>package.json</em> file.</p>
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Get your Node application up'n running:</p>
+                <p>- Next up is to create the application-runnable file called <em>app.js</em>.</p> 
+                <p>The app.js file contains the routes and functions that are required in order to run the application.</p>
+                <p>The main purpose of app.js is to serve http requests from clients.</p>
+                <img src="app.PNG" alt="simple app">
+                <p>The picture above shows how simple it is to setup a node project with just a few lines of code. </p>
+                <p>The app is served with express, which was implemented in the project using the command: <em>npm install express</em>.</p>
+                <p>- To run the app, use the terminal command: <em>node app.js</em>.</p>
+                <p style="font-weight: 800;">You are up'n running!</p>
+            </div>
+
+        </div>
+        
+        
+
+        <script>
+            function openNav() {
+              document.getElementById("side-nav").style.width = "300px";
+            }
+            
+            function closeNav() {
+              document.getElementById("side-nav").style.width = "0";
+            }
+            </script>
+
+        
+    
+</body>
+</html>

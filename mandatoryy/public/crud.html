@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Frontpage</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/app-functions.js"></script>
+</head>
+<body style="background-color: black;">
+    
+        <video id="video-background" autoplay loop>
+            <source src="/bg3.mp4" type="video/mp4">
+        </video>
+        
+        <div class="head">
+            <img src="/logos/crud.png" id="node-img" alt="Node" width="300px">
+        </div>
+
+        <span class="open-nav" onclick="openNav()">Content menu</span>
+
+        <div id="side-nav" class="nav-side-bar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active-nav" href="/index">Frontpage</a>
+            <a href="nodeJS">Setup a node project</a>
+            <a href="/tools">Tools</a>
+            <a href="/JavaScript">JavaScript</a>
+            <a class="active-nav" href="/crud">CRUD</a>
+
+        </div>
+        <div class="content-wrapper">
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">CRUD - Create, Read, Update, Delete</p>
+                <p>This section will cover: how to achieve creating a functional crud web application using in Node.js. </p>
+                <p>There will be some interactive examples to demonstrate the theory behind the crud operations</p>
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Create</p>
+                <p>Create is a fundamental part of having a usefull web application. Not only do you want to show data to the client, 
+                    but the client might also want to be able to add data to a database. </p>
+                <div class="interaction-section" style="background-color: #4997af;">
+                    <form action="/person" method="POST">
+                        <p>Name:</p>
+                        <input id="name-input" type="text" placeholder="name" name="personname">
+                        <p>Corona infected?</p>
+                        <select id="corona-status" name="coronavalue">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        
+                        </select>
+                        <p></p>
+                        <button id="add-btn" type="submit">Add</button>
+                    </form>
+                </div>
+                <p>A 'post' method is used to create the person above. but before the server can read the body of the form a module called: <em>body-parser</em> needs to be installed
+                     top the project. Go to <em>Tools</em> for deeper explanation</p>
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Read</p>
+                <p>You might also want to read some data from a database or from the server.  </p>
+                <button style="margin-left: 20px;" id="person-btn">Get list</button>
+                <div class="table-section">
+                    
+                    <table id="person-table">
+                        <thead>
+                           
+                        </thead>
+                        <tbody>
+                            <tr>  
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p>Using a <em>GET request</em> you are able to do that.</p>
+                <img src="/getpersons.png" alt="">
+                <p>You can return anything - from json files to plain text</p>
+                <p>You could make a function that only returns one element by a search maybe.</p>
+                
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Update</p>
+                <p>You can also update an element using: <em>put request</em>.</p>
+
+                <div class="interaction-section" style="background-color: #4997af;">
+                        <button id="update-btn" type="submit">Update</button>
+                </div>
+                <p id="message-upd"></p>
+                <img src="/newperson.png" alt="">
+                <p>Above sees the method that changes the first element in the person list.</p>
+
+                
+            </div>
+
+            <div class="page-content">
+                <p ></p>
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">Delete</p>
+                <p>Last thing to cover is how to delete an element in  list</p>
+                <p>On the server side is a delete request.</p>
+
+                <div class="interaction-section" style="background-color: #4997af;">
+                    <button id="delete-btn" type="submit">Delete</button>
+                </div>
+                <p id="message-del"></p>
+                
+                
+            </div>
+        
+        </div>
+
+        <script>
+            function openNav() {
+              document.getElementById("side-nav").style.width = "300px";
+            };
+            
+            function closeNav() {
+              document.getElementById("side-nav").style.width = "0";
+            };
+
+        
+            //Populating the table
+            $("#person-btn").click(() => {
+            $.get("/persons", (data, status) => {
+                $("#person-table tr").empty();
+                $("#person-table").append("<tr><td>Name</td><td>Infected by corona</td></tr>");
+                index = 0;
+                while (data){
+                    var newRowContent = "<tr><td>" + data[index].name + "</td><td>" + data[index].infected + "</td></tr>";
+                $("#person-table").append(newRowContent);
+                index++;
+                }
+               
+            });
+            });
+            
+            //Updates the list on the server side with ajax
+            $('#update-btn').click(() => {
+                $.ajax({
+                url: '/updatepersonlist',
+                type: 'PUT',
+                success: function(result) {
+                    console.log(result)
+                    }
+                });
+                $('#message-upd').text("Try refresh the list and see the first element has changed its name. You might want to restart the server if you test this several times.")
+            });
+
+
+            //Deletes a person on the server list with ajax
+            $('#delete-btn').click(() => {
+                $.ajax({
+                url: '/deleteperson',
+                type: 'DELETE',
+                success: function(result) {
+                    console.log(result)
+                    }
+                });
+                $('#message-del').text("Try refresh the list and see the first element has been removed. You might want to restart the server if you test this several times.")
+                
+            });
+
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/gif/png" href="/iu-4png">
+    <title>JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/app-functions.js"></script>
+</head>
+<body style="background-color: black;">
+    
+
+        <video id="video-background" autoplay loop>
+            <source src="/bg3.mp4" type="video/mp4">
+
+        </video>
+        
+        <div class="head">
+            <img src="/logos/iu-4.png" id="node-img" alt="JS" height="150px">
+        </div>
+
+        <span class="open-nav" onclick="openNav()">Content menu</span>
+
+        <div id="side-nav" class="nav-side-bar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/index">Frontpage</a>
+            <a href="/nodeJS">Setup a node project</a>
+            <a href="/tools">Tools</a>
+            <a class="active-nav" href="/JavaScript">JavaScript</a>
+            <a href="/crud">CRUD</a>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="page-content" style="background-color: #e9c913; opacity: 0.9;">
+                <p style="font-weight: 800; font-size: 1.3em; padding-top: 20px;">JavaScript</p>
+                <p>- JavaScript is the programming language of the web.</p>
+                <p>- It is mainly used to control the behavior of a webpage, but is also used by some databases and of course Node.Js.</p>
+                <p>This section will focus on the JavaScript language, demonstrating some of the possibilities with JS, and what the course have covered so far.</p>
+                <p>Demonstrating ajax & JQuery.</p>
+                <p>There will be some interactivity on this page to test out functions as well.</p>
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.1em; padding-top: 20px;">Time and date:</p>
+                <p style="border-bottom: 1px solid black; font-size: 1.2em; text-align: center;" id="time-date"></p>
+                <p>Javascript can be used to modify content of a html element. An example above shows how an element is showing the current time and date with 
+                    the help of a javascript function and JQuery. </p>
+                <p>The time is updating every second.</p>
+                <p>The code behind is a function that returns 'Date' values in a specified order every second. JS has a build in Date(), which contains date values you can use.</p>
+            </div>
+
+            <div class="page-content" style="background-color: black; ">
+                <p style="font-weight: 800; font-size: 1.1em; padding-top: 20px; color: white;">Side navigation bar</p>
+                <p style="color: white;">The side navigation bar is hidden and shown using JS. JS is used to set the width from two functions: 
+                    <em onclick="openNav()" style="cursor: pointer;">openNav()</em> and <em style="cursor: pointer;" onclick="closeNav()">closeNav()</em>. Click the green text to test.</p>
+                <img src="/nav.png" alt="">
+
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.1em; padding-top: 20px;">Adding items</p>
+                <p>Populating lists or Javascript objects might seem to be quiet usefull in some cases. </p>
+
+                <div class="table-section">
+                    <table id="person-table">
+                        <tr>
+                          <th>Name</th>
+                          <th>Infected by corona</th>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="interaction-section" style="background-color: #e9c913;">
+                    <p>Name:</p>
+                    <input id="name-input" type="text" placeholder="name">
+                    <p>Corona infected?</p>
+                    <select id="corona-status">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        
+                    </select>
+                      <p></p>
+                    <button onclick="addPerson()" >Add</button>
+                </div>
+
+                <p>The example above demonstrate how you could populate a table. The function also add an object to a list. Open up the browser-console for prove.</p>
+                <img src="/jq-select.png" alt="jq.val">
+                <p>- You can get a value from a html element as shown in the image above with JQuery.</p>
+                <img src="/jq-append.png" alt="append">
+                <p>- You can add a value to an element as the picture above shows with JQuery.</p>
+
+            </div>
+
+            <div class="page-content">
+                <p style="font-weight: 800; font-size: 1.1em; padding-top: 20px;">Manipulating elements</p>
+                <p>Cool things to do would be to manipulate the content of a page: change text color, add a new element etc. </p>
+                <p id="clicked-color">- You can tap the color belov to change it.</p>
+                <div id="color-section"></div>
+
+                <p>The image below shows how JS(JQuery) can manipulate elements by changing the css.</p>
+                <img src="/colorchange.png" alt="color cHANCE">
+                <p>Everyy time the element is clicked the variable 'color' changes to a specified value witch determines the actual color.</p>
+            </div>
+        </div>
+
+        <script>
+            function openNav() {
+              document.getElementById("side-nav").style.width = "300px";
+            }
+            
+            function closeNav() {
+              document.getElementById("side-nav").style.width = "0";
+            }
+
+            //Creates time and day every second and appends to a <p>
+            const week = ["Sunday", "Monday", "Thuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            window.setInterval(function(){
+                $('#time-date').empty();
+                $('#time-date').append(() =>{
+                var today = new Date();
+                var weekday = week[today.getDay()];
+                var dd = String(today.getDate()).padStart(2, "0");
+                var mm = String(today.getMonth() + 1).padStart(2, "0");
+                var hh = String(today.getHours()).padStart(2, "0");
+                var minutes = String(today.getMinutes()).padStart(2, "0");
+                var seconds = String(today.getSeconds()).padStart(2, "0");
+                var yyyy = today.getFullYear();
+                today = weekday + "/" + dd + '/'+ mm + '/' + yyyy + ": " + hh + ":" + minutes +":" + seconds;
+
+                return today;
+                });
+            }, 1000);
+
+            var color = "#e9c913";
+            $('#color-section').mousedown(()=>{
+                $('#color-section').css("background-color", color);
+                $('#clicked-color').text("Nice - The color can change!");
+                if (color === "#e9c913") {
+                    color = "#68ce54"; 
+                } else {
+                    color = "#e9c913"
+                }
+                    
+            });
+            </script>
+</body>
+</html>
